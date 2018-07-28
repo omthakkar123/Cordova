@@ -1,5 +1,5 @@
-1.  Hello World App
-    Buttons
+1.  Hello World App,
+    Buttons,
     Event Listeners
 
         Command
@@ -30,8 +30,8 @@
         </body>
         </html>
 
-2.  Functions
-    Events
+2.  Functions,
+    Events,
     Handling Back Button
 
         Command
@@ -65,8 +65,8 @@
         </body>
         </html>
 
-3.  Plugins
-    Battery Plugin
+3.  Plugins,
+    Battery Plugin,
     Camera Plugin
     
         Command
@@ -114,8 +114,8 @@
         </body>
         </html>
 
-4.  Contacts Plugin
-    Device Plugin
+4.  Contacts Plugin,
+    Device Plugin,
     Accelerometer Plugin
 
         Command
@@ -179,7 +179,7 @@
         </body>
         </html>
 
-5.  Device Orientation Plugin
+5.  Device Orientation Plugin,
     Prompt Function
 
         Command
@@ -222,7 +222,7 @@
         </body>
         </html>
 
-6.  File Plugin
+6.  File Plugin,
     File Transfer Plugin
     
         Command
@@ -375,8 +375,8 @@
         </body>
         </html>
 
-7.  Globalization Plugin
-    Media Plugin
+7.  Globalization Plugin,
+    Media Plugin,
     Media Capture Plugin
 
         Command
@@ -563,8 +563,8 @@
         </body>
         </html>
 
-8.  Network Information Plugin
-    Splash Screen Plugin
+8.  Network Information Plugin,
+    Splash Screen Plugin,
     Vibration Plugin
 
         Command
@@ -630,8 +630,8 @@
         </body>
         </html>
 
-9.  Single Page Apps
-    Multipage Apps
+9.  Single Page Apps,
+    Multipage Apps,
     Store Data Locally
 
         Command
@@ -681,6 +681,6 @@
         </body>
         </html>
 
-10. SQLite Plugin
-    SQLite Read/Write & Search
+10. SQLite Plugin,
+    SQLite Read/Write & Search,
     SQLite Storage With JQuery

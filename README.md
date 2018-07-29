@@ -50,16 +50,17 @@
         </head>
         <body>
             <h1>Events</h1>
-            <button id="alertBtn" onclick="alert()">ALERT!</button>
+            <button id="alertBtn">ALERT!</button>
             <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
-                document.addEventListener("backbutton",onBackBtn,false);
-                function onBackBtn(){
-                    e.preventDefault();
-                    alert("Back Button Pressed!");
+                document.getElementById("alertBtn").addEventListener("click",alertFunction);
+                document.addEventListener("backbutton", onBackKeyDown, false);  
+                function onBackKeyDown(e) { 
+                    e.preventDefault(); 
+                    alert('Back Button is Pressed!'); 
                 }
-                function alert(){
+                function alertFunction(){
                     alert("This Is Alert Message!");
                 }
             </script>

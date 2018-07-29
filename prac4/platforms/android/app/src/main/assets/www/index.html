@@ -1,0 +1,48 @@
+<html>
+        <head>
+            <title>Plugins</title>
+        </head>
+        <body>
+            <h1>Plugins</h1>
+            <button id = "createContact">ADD CONTACT</button>
+            <button id = "cordovaDevice">CORDOVA DEVICE</button>
+            <button id = "getAcceleration">GET ACCELERATION</button>
+            <script src="cordova.js"></script>
+            <script src="js/index.js"></script>
+            <script>
+                document.getElementById("createContact").addEventListener("click", createContact);
+                document.getElementById("cordovaDevice").addEventListener("click", cordovaDevice);
+                document.getElementById("getAcceleration").addEventListener("click", getAcceleration);
+                function createContact() {
+                    var myContact = navigator.contacts.create({"displayName": "Test User"});
+                    myContact.save(contactSuccess, contactError);
+                    function contactSuccess() {
+                        alert("Contact is saved!");
+                    } 
+                    function contactError(message) {
+                        alert('Failed because: ' + message);
+                    }   
+                }
+                function cordovaDevice() {
+                    alert("Cordova version: " + device.cordova + "\n" +
+                        "Device model: " + device.model + "\n" +
+                        "Device platform: " + device.platform + "\n" +
+                        "Device UUID: " + device.uuid + "\n" +
+                        "Device version: " + device.version);
+                }
+                function getAcceleration() {
+                    navigator.accelerometer.getCurrentAcceleration(
+                        accelerometerSuccess, accelerometerError);
+                    function accelerometerSuccess(acceleration) {
+                        alert('Acceleration X: ' + acceleration.x + '\n' +
+                            'Acceleration Y: ' + acceleration.y + '\n' +
+                            'Acceleration Z: ' + acceleration.z + '\n' +
+                            'Timestamp: '      + acceleration.timestamp + '\n');
+                    };
+                    function accelerometerError() {
+                        alert('onError!');
+                    };
+                }
+            </script>
+        </body>
+        </html>

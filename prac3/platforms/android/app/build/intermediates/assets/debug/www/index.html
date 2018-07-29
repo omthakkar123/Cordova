@@ -1,0 +1,33 @@
+<html>
+        <head>
+            <title>Plugins</title>
+        </head>
+        <body>
+            <h1>Plugins</h1>
+            <button id = "cameraTakePicture">TAKE PICTURE</button>
+            <img id = "myImage"></img>
+            <script src="cordova.js"></script>
+            <script src="js/index.js"></script>
+            <script>
+                window.addEventListener("batterystatus", onBatteryStatus, false); 
+                function onBatteryStatus(info) { 
+                    alert("BATTERY STATUS:  Level: " + info.level + " isPlugged: " + info.isPlugged); 
+                }
+                document.getElementById("cameraTakePicture").addEventListener 
+                    ("click", cameraTakePicture); 
+                function cameraTakePicture() { 
+                    navigator.camera.getPicture(onSuccess, onFail, {  
+                        quality: 50, 
+                        destinationType: Camera.DestinationType.DATA_URL 
+                    });
+                    function onSuccess(imageData) { 
+                        var image = document.getElementById('myImage'); 
+                        image.src = "data:image/jpeg;base64," + imageData; 
+                    }  
+                    function onFail(message) { 
+                        alert('Failed because: ' + message); 
+                    } 
+                }
+            </script>
+        </body>
+        </html>

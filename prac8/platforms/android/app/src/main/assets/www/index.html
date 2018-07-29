@@ -1,0 +1,50 @@
+<html>
+        <head>
+            <preference name = "SplashScreen" value = "screen" />
+            <preference name = "SplashScreenDelay" value = "3000" />
+            <preference name = "SplashMaintainAspectRatio" value = "true" />
+            <title>Plugins</title>
+        </head>
+        <body>
+            <h1>Plugins</h1>
+            <button id = "networkInfo">INFO</button>
+            <button id = "vibration">VIBRATION</button>
+            <button id = "vibrationPattern">PATTERN</button>
+            <script src="cordova.js"></script>
+            <script src="js/index.js"></script>
+            <script>
+                document.getElementById("networkInfo").addEventListener("click", networkInfo);
+                document.addEventListener("offline", onOffline, false);
+                document.addEventListener("online", onOnline, false);
+                document.getElementById("vibration").addEventListener("click", vibration);
+                document.getElementById("vibrationPattern").addEventListener("click", vibrationPattern);
+                function networkInfo() {
+                    var networkState = navigator.connection.type;
+                    var states = {};
+                    states[Connection.UNKNOWN]  = 'Unknown connection';
+                    states[Connection.ETHERNET] = 'Ethernet connection';
+                    states[Connection.WIFI]     = 'WiFi connection';
+                    states[Connection.CELL_2G]  = 'Cell 2G connection';
+                    states[Connection.CELL_3G]  = 'Cell 3G connection';
+                    states[Connection.CELL_4G]  = 'Cell 4G connection';
+                    states[Connection.CELL]     = 'Cell generic connection';
+                    states[Connection.NONE]     = 'No network connection';
+                    alert('Connection type: ' + states[networkState]);
+                }
+                function onOffline() {
+                    alert('You are now offline!');
+                }
+                function onOnline() {
+                    alert('You are now online!');
+                }
+                function vibration() {
+                    var time = 3000;
+                    navigator.vibrate(time);
+                }
+                function vibrationPattern() {
+                    var pattern = [1000, 1000, 1000, 1000];
+                    navigator.vibrate(pattern);
+                }
+            </script>
+        </body>
+        </html>

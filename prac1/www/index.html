@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Hello, World!</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <button id="alertBtn">ALERT!</button>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        document.getElementById("alertBtn").addEventListener("click",alertFunction);
+        function alertFunction(){
+            alert("This Is Alert Message!");
+        }
+    </script>
+</body>
+</html>

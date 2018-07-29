@@ -51,6 +51,7 @@
         <body>
             <h1>Events</h1>
             <button id="alertBtn" onclick="alert()">ALERT!</button>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.addEventListener("backbutton",onBackBtn,false);
@@ -89,6 +90,7 @@
             <h1>Plugins</h1>
             <button id = "cameraTakePicture">TAKE PICTURE</button>
             <img id = "myImage"></img>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 window.addEventListener("batterystatus", onBatteryStatus, false); 
@@ -140,6 +142,7 @@
             <button id = "createContact">ADD CONTACT</button>
             <button id = "cordovaDevice">CORDOVA DEVICE</button>
             <button id = "getAcceleration">GET ACCELERATION</button>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.getElementById("createContact").addEventListener("click", createContact);
@@ -201,6 +204,7 @@
             <h1>Plugins</h1>
             <button id = "getOrientation">GET ORIENTATION</button>
             <button id = "getPrompt">PROMPT</button>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.getElementById("getOrientation").addEventListener("click", getOrientation);
@@ -250,6 +254,7 @@
             <button id = "uploadFile">UPLOAD</button>
             <button id = "downloadFile">DOWNLOAD</button>
             <textarea id = "textarea"></textarea>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.getElementById("createFile").addEventListener("click", createFile);
@@ -410,6 +415,7 @@
             <button id = "audioCapture">AUDIO</button>
             <button id = "imageCapture">IMAGE</button>
             <button id = "videoCapture">VIDEO</button>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.getElementById("getLanguage").addEventListener("click", getLanguage);
@@ -592,6 +598,7 @@
             <button id = "networkInfo">INFO</button>
             <button id = "vibration">VIBRATION</button>
             <button id = "vibrationPattern">PATTERN</button>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.getElementById("networkInfo").addEventListener("click", networkInfo);
@@ -654,6 +661,7 @@
             <button id = "showLocalStorage">SHOW LOCAL STORAGE</button>
             <button id = "removeProjectFromLocalStorage">REMOVE PROJECT</button>
             <button id = "getLocalStorageByKey">GET BY KEY</button>
+            <script src="cordova.js"></script>
             <script src="js/index.js"></script>
             <script>
                 document.getElementById("setLocalStorage").addEventListener("click", setLocalStorage); 

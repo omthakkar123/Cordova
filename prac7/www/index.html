@@ -1,0 +1,171 @@
+<html>
+        <head>
+            <title>Plugins</title>
+        </head>
+        <body>
+            <h1>Plugins</h1>
+            <button id = "getLanguage">LANGUAGE</button>
+            <button id = "getLocaleName">LOCALE NAME</button>
+            <button id = "getDate">DATE</button>
+            <button id = "getCurrency">CURRENCY</button>
+            <button id = "playAudio">PLAY</button>
+            <button id = "pauseAudio">PAUSE</button>
+            <button id = "stopAudio">STOP</button>
+            <button id = "volumeUp">VOLUME UP</button>
+            <button id = "volumeDown">VOLUME DOWN</button>
+            <button id = "audioCapture">AUDIO</button>
+            <button id = "imageCapture">IMAGE</button>
+            <button id = "videoCapture">VIDEO</button>
+            <script src="cordova.js"></script>
+            <script src="js/index.js"></script>
+            <script>
+                document.getElementById("getLanguage").addEventListener("click", getLanguage);
+                document.getElementById("getLocaleName").addEventListener("click", getLocaleName);
+                document.getElementById("getDate").addEventListener("click", getDate);
+                document.getElementById("getCurrency").addEventListener("click", getCurrency);
+                document.getElementById("playAudio").addEventListener("click", playAudio);
+                document.getElementById("pauseAudio").addEventListener("click", pauseAudio);
+                document.getElementById("stopAudio").addEventListener("click", stopAudio);
+                document.getElementById("volumeUp").addEventListener("click", volumeUp);
+                document.getElementById("volumeDown").addEventListener("click", volumeDown);
+                document.getElementById("audioCapture").addEventListener("click", audioCapture);
+                document.getElementById("imageCapture").addEventListener("click", imageCapture);
+                document.getElementById("videoCapture").addEventListener("click", videoCapture);
+                function getLanguage() {
+                    navigator.globalization.getPreferredLanguage(onSuccess, onError);
+                    function onSuccess(language) {
+                        alert('language: ' + language.value + '\n');
+                    }
+                    function onError(){
+                        alert('Error getting language');
+                    }
+                }
+                function getLocaleName() {
+                    navigator.globalization.getLocaleName(onSuccess, onError);
+                    function onSuccess(locale) {
+                        alert('locale: ' + locale.value);
+                    }
+                    function onError(){
+                        alert('Error getting locale');
+                    }
+                }
+                function getDate() {
+                    var date = new Date();
+                    var options = {
+                        formatLength:'short',
+                        selector:'date and time'
+                    }
+                    navigator.globalization.dateToString(date, onSuccess, onError, options);
+                    function onSuccess(date) {
+                        alert('date: ' + date.value);
+                    }
+                    function onError(){
+                        alert('Error getting dateString');
+                    }
+                }
+                function getCurrency() {
+                    var currencyCode = 'EUR';
+                    navigator.globalization.getCurrencyPattern(currencyCode, onSuccess, onError);
+                    function onSuccess(pattern) {
+                        alert('pattern: '  + pattern.pattern  + '\n' +
+                            'code: '     + pattern.code     + '\n' +
+                            'fraction: ' + pattern.fraction + '\n' +
+                            'rounding: ' + pattern.rounding + '\n' +
+                            'decimal: '  + pattern.decimal  + '\n' +
+                            'grouping: ' + pattern.grouping);
+                    }
+                    function onError(){
+                        alert('Error getting pattern');
+                    }
+                }
+                var myMedia = null;
+                function playAudio() {
+                    var src = "/android_asset/www/audio/piano.mp3";
+                    if(myMedia === null) {
+                        myMedia = new Media(src, onSuccess, onError);
+
+                        function onSuccess() {
+                            console.log("playAudio Success");
+                        }
+
+                        function onError(error) {
+                            console.log("playAudio Error: " + error.code);
+                        }
+                    }
+                    myMedia.play();
+                }
+                function pauseAudio() {
+                    if(myMedia) {
+                        myMedia.pause();
+                    }
+                }
+                function stopAudio() {
+                    if(myMedia) {
+                        myMedia.stop(); 
+                    }
+                    myMedia = null;
+                }
+                var volumeValue = 0.5;
+                function volumeUp() {
+                    if(myMedia && volumeValue < 1) {
+                        myMedia.setVolume(volumeValue += 0.1);
+                    }
+                }
+                function volumeDown() {
+                    if(myMedia && volumeValue > 0) {
+                        myMedia.setVolume(volumeValue -= 0.1);
+                    }
+                }
+                function audioCapture() {
+                    var options = {
+                        limit: 1,
+                        duration: 10
+                    };
+                    navigator.device.capture.captureAudio(onSuccess, onError, options);
+                    function onSuccess(mediaFiles) {
+                        var i, path, len;
+                        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                            path = mediaFiles[i].fullPath;
+                            console.log(mediaFiles);
+                        }
+                    }
+                    function onError(error) {
+                        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+                    }
+                }
+                function imageCapture() {
+                    var options = {
+                        limit: 1
+                    };
+                    navigator.device.capture.captureImage(onSuccess, onError, options);
+                    function onSuccess(mediaFiles) {
+                        var i, path, len;
+                        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                            path = mediaFiles[i].fullPath;
+                            console.log(mediaFiles);
+                        }
+                    }
+                    function onError(error) {
+                        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+                    }
+                }
+                function videoCapture() {
+                    var options = {
+                        limit: 1,
+                        duration: 10
+                    };
+                    navigator.device.capture.captureVideo(onSuccess, onError, options);
+                    function onSuccess(mediaFiles) {
+                        var i, path, len;
+                        for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                            path = mediaFiles[i].fullPath;
+                            console.log(mediaFiles);
+                        }
+                    }
+                    function onError(error) {
+                        navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+                    }
+                }
+            </script>
+        </body>
+        </html>

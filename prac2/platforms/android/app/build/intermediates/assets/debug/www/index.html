@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>Functions</title>
+</head>
+
+<body>
+    <h1>Events</h1>
+    <button id="alertBtn" onclick="alert()">ALERT!</button>
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        document.addEventListener("backbutton", onBackBtn, false);
+        function onBackBtn() {
+            e.preventDefault();
+            alert("Back Button Pressed!");
+        }
+        function alert() {
+            alert("This Is Alert Message!");
+        }
+    </script>
+</body>
+
+</html>
